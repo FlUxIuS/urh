@@ -52,7 +52,7 @@ IF HACKRF_MULTI_DEVICE_SUPPORT == 1:
         return chackrf.hackrf_open_by_serial(c_desired_serial, &_c_device)
     cpdef get_device_list():
         init()
-        cdef chackrf.hackrf_device_list_t* device_list = chackrf.hackrf_device_list()
+        cdef hackrf_device_list_t* device_list = <hackrf_device_list_t*>hackrf_device_list()
 
         result = []
         cdef int i
